@@ -2,6 +2,8 @@
 
 Test campaign data for validating CivicAI's M1 content ingestion and analysis pipeline.
 
+**Repository:** https://github.com/tr1n1tycat/civicai-test-campaigns
+
 ---
 
 ## Quick Links
