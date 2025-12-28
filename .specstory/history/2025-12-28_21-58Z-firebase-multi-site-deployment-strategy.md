@@ -3920,16 +3920,25 @@ Good. Now let me update the README.md with the live URLs.</details></think>
 
 <details><summary>Tool use: **search_replace** • Edit file: /home/trinity/Templates/civicai-test-campaigns/README.md</summary>
 
-Status: **loading**
+**Chunk 1**
+Lines added: 5, lines removed: 5
 
-```markdown
-## Quick Links
-
-| Campaign | Live URL | Docs | Documents | Status |
-|----------|----------|------|-----------|--------|
-| **A (Santos)** | [santos4colorado.web.app](https://santos4colorado.web.app) | [docs/campaign-a/](docs/campaign-a/) | [documents/campaign-a/](documents/campaign-a/) | ✅ Live |
-| **B (Miller)** | [millerforward3.web.app](https://millerforward3.web.app) | [docs/campaign-b/](docs/campaign-b/) | [documents/campaign-b/](documents/campaign-b/) | ✅ Live |
-| **C (Duchen)** | [marcforaustin.com](https://marcforaustin.com) | [docs/campaign-c/](docs/campaign-c/) | Pipeline synthesizes | ✅
+```diff
+@@ -7,9 +7,9 @@
+  ## Quick Links
+  
+- | Campaign | Website | Docs | Documents | Status |
+- |----------|---------|------|-----------|--------|
+- | **A (Santos)** | &#96;sites/santos4colorado/&#96; | [docs/campaign-a/](docs/campaign-a/) | [documents/campaign-a/](documents/campaign-a/) | ✅ Complete |
+- | **B (Miller)** | &#96;sites/millerforward3/&#96; | [docs/campaign-b/](docs/campaign-b/) | [documents/campaign-b/](documents/campaign-b/) | ✅ Complete |
+- | **C (Duchen)** | https://marcforaustin.com | [docs/campaign-c/](docs/campaign-c/) | Pipeline synthesizes | ✅ Ready for pipeline |
++ | Campaign | Live URL | Docs | Documents | Status |
++ |----------|----------|------|-----------|--------|
++ | **A (Santos)** | [santos4colorado.web.app](https://santos4colorado.web.app) | [docs/campaign-a/](docs/campaign-a/) | [documents/campaign-a/](documents/campaign-a/) | ✅ Live |
++ | **B (Miller)** | [millerforward3.web.app](https://millerforward3.web.app) | [docs/campaign-b/](docs/campaign-b/) | [documents/campaign-b/](documents/campaign-b/) | ✅ Live |
++ | **C (Duchen)** | [marcforaustin.com](https://marcforaustin.com) | [docs/campaign-c/](docs/campaign-c/) | Pipeline synthesizes | ✅ Live |
+  
+  ---
 ```
 
 </details>
@@ -3938,7 +3947,1144 @@ Status: **loading**
 
 ---
 
+<tool-use data-tool-type="write" data-tool-name="search_replace">
 
+<details><summary>Tool use: **search_replace** • Edit file: /home/trinity/Templates/civicai-test-campaigns/README.md</summary>
+
+**Chunk 1**
+Lines added: 15, lines removed: 16
+
+```diff
+@@ -154,22 +154,21 @@
+  ---
+  
+- ## Serving the Sites Locally
+- 
+- ### Campaign A (Santos)
++ ## Live Deployments
++ 
++ All campaigns are live on Firebase:
++ 
++ - **Campaign A:** https://santos4colorado.web.app
++ - **Campaign B:** https://millerforward3.web.app
++ - **Campaign C:** https://marcforaustin.com
++ 
++ ### Serve Locally (Development)
++ 
+  &#96;&#96;&#96;bash
+- cd sites/santos4colorado
+- python3 -m http.server 8001
+- # Visit: http://localhost:8001
+- &#96;&#96;&#96;
+- 
+- ### Campaign B (Miller)
+- &#96;&#96;&#96;bash
+- cd sites/millerforward3
+- python3 -m http.server 8002
+- # Visit: http://localhost:8002
++ # Campaign A
++ cd sites/santos4colorado &amp;&amp; python3 -m http.server 8001
++ 
++ # Campaign B
++ cd sites/millerforward3 &amp;&amp; python3 -m http.server 8002
+  &#96;&#96;&#96;
+- 
+- ### Campaign C (Duchen)
+- Already live at: https://marcforaustin.com
+  
+  ---
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **search_replace** • Edit file: /home/trinity/Templates/civicai-test-campaigns/README.md</summary>
+
+**Chunk 1**
+Lines added: 27, lines removed: undefined
+
+```diff
+@@ -171,4 +171,31 @@
+  cd sites/millerforward3 &amp;&amp; python3 -m http.server 8002
+  &#96;&#96;&#96;
++ 
++ ---
++ 
++ ## Deployment
++ 
++ ### Firebase Multi-Site Hosting
++ 
++ Both test campaigns are deployed via Firebase:
++ 
++ &#96;&#96;&#96;bash
++ # Deploy all sites
++ firebase deploy --only hosting
++ 
++ # Deploy individually
++ firebase deploy --only hosting:santos   # Santos campaign
++ firebase deploy --only hosting:miller   # Miller campaign
++ &#96;&#96;&#96;
++ 
++ **Auto-deployment:** GitHub Actions workflow deploys on push to &#96;main&#96; branch.
++ 
++ ### Firebase Configuration
++ 
++ - **Project:** &#96;civicai-43a01&#96; (CivicAI Development)
++ - **Sites:**
++   - &#96;santos4colorado&#96; → https://santos4colorado.web.app
++   - &#96;millerforward3&#96; → https://millerforward3.web.app
++ - **Configuration:** See &#96;firebase.json&#96; and &#96;.firebaserc&#96;
+  
+  ---
+```
+
+**Chunk 2**
+Lines added: 3, lines removed: 9
+
+```diff
+@@ -180,13 +207,7 @@
+     - Campaign B: 1 markdown → PDF
+  
+- 2. **Deployment** (when ready)
+-    - Set up Firebase hosting for santos4colorado and millerforward3
+-    - Configure multi-site deployment
+-    - Deploy to stable URLs for dev team testing
+- 
+- 3. **Handoff to Dev Team**
+-    - Provide repo link
+-    - Provide deployed URLs
+-    - Provide document download links (Firebase Storage or GCS)
++ 2. **Document Hosting**
++    - Upload to Firebase Storage or GCS
++    - Provide download links for pipeline testing
+  
+  ---
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Good, documentation updated. Now I need to check if there's a .gitignore file and then initialize the git repo.</details></think>
+
+---
+
+<tool-use data-tool-type="read" data-tool-name="read_file">
+<details><summary>Tool use: **read_file** • Read file: /home/trinity/Templates/civicai-test-campaigns/.gitignore</summary>
+
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+I need to update the .gitignore to NOT ignore .firebaserc since we need that for the GitHub Actions workflow to work. Also need to keep firebase.json. Let me fix that.</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **search_replace** • Edit file: /home/trinity/Templates/civicai-test-campaigns/.gitignore</summary>
+
+**Chunk 1**
+Lines added: 1, lines removed: 1
+
+```diff
+@@ -8,5 +8,5 @@
+  .firebase/
+  firebase-debug.log*
+- .firebaserc
++ # Note: .firebaserc is tracked for deployment automation
+  
+  # OS files
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && git init && git branch -M main</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && git init && git branch -M main
+```
+
+```
+Initialized empty Git repository in /home/trinity/Templates/civicai-test-campaigns/.git/
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: will change to "main" in Git 3.0. To configure the initial branch name
+hint: to use in all of your new repositories, which will suppress this warning,
+hint: call:
+hint:
+hint: 	git config --global init.defaultBranch &lt;name&gt;
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m &lt;name&gt;
+hint:
+hint: Disable this message with "git config set advice.defaultBranchName false"
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Good, git initialized. Now I need to create the GitHub Actions workflow file for auto-deployment, then stage all files, commit, and create the GitHub repository.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && mkdir -p .github/workflows</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && mkdir -p .github/workflows
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="write">
+
+<details><summary>Tool use: **write** • Edit file: /home/trinity/Templates/civicai-test-campaigns/.github/workflows/deploy.yml</summary>
+
+**Chunk 1**
+Lines added: 30, lines removed: 1
+
+```diff
+@@ -1,1 +1,30 @@
+- 
++ name: Deploy to Firebase Hosting
++ 
++ on:
++   push:
++     branches:
++       - main
++   workflow_dispatch:
++ 
++ jobs:
++   deploy:
++     runs-on: ubuntu-latest
++     
++     steps:
++       - name: Checkout code
++         uses: actions/checkout@v4
++ 
++       - name: Install Node.js
++         uses: actions/setup-node@v4
++         with:
++           node-version: '20'
++ 
++       - name: Install Firebase CLI
++         run: npm install -g firebase-tools
++ 
++       - name: Deploy to Firebase
++         env:
++           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
++         run: |
++           firebase deploy --only hosting --project civicai-43a01 --token "$FIREBASE_TOKEN"
++ 
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Good. Now I need to generate a Firebase token for GitHub Actions, add files to git, commit, and push. Let me first get the Firebase CI token.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && firebase login:ci</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && firebase login:ci
+```
+
+```
+
+Error: Cannot run login:ci in non-interactive mode.
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Right, I need to handle the Firebase token differently. I'll document in the commit that the user needs to add the FIREBASE_TOKEN secret to GitHub. Let me stage and commit everything now.</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="write">
+
+<details><summary>Tool use: **write** • Edit file: /home/trinity/Templates/civicai-test-campaigns/DEPLOYMENT.md</summary>
+
+**Chunk 1**
+Lines added: 177, lines removed: 1
+
+```diff
+@@ -1,1 +1,177 @@
+- 
++ # Deployment Guide
++ 
++ ## Firebase Hosting
++ 
++ Both campaign sites are deployed to Firebase using multi-site hosting.
++ 
++ ### Live URLs
++ 
++ - **Campaign A (Santos):** https://santos4colorado.web.app
++ - **Campaign B (Miller):** https://millerforward3.web.app
++ - **Campaign C (Duchen):** https://marcforaustin.com (external)
++ 
++ ---
++ 
++ ## Manual Deployment
++ 
++ ### Prerequisites
++ 
++ 1. Firebase CLI installed: &#96;npm install -g firebase-tools&#96;
++ 2. Authenticated: &#96;firebase login&#96;
++ 3. Project configured: See &#96;.firebaserc&#96;
++ 
++ ### Deploy Commands
++ 
++ &#96;&#96;&#96;bash
++ # Deploy all hosting sites
++ firebase deploy --only hosting
++ 
++ # Deploy specific site
++ firebase deploy --only hosting:santos
++ firebase deploy --only hosting:miller
++ &#96;&#96;&#96;
++ 
++ ---
++ 
++ ## GitHub Actions Auto-Deployment
++ 
++ ### Setup
++ 
++ The repository includes a GitHub Actions workflow (&#96;.github/workflows/deploy.yml&#96;) that automatically deploys to Firebase when you push to the &#96;main&#96; branch.
++ 
++ #### Required Secret
++ 
++ You need to add a &#96;FIREBASE_TOKEN&#96; secret to your GitHub repository:
++ 
++ 1. **Generate Firebase CI token:**
++    &#96;&#96;&#96;bash
++    firebase login:ci
++    &#96;&#96;&#96;
++    This will open a browser for authentication and output a token.
++ 
++ 2. **Add secret to GitHub:**
++    - Go to your repository → Settings → Secrets and variables → Actions
++    - Click "New repository secret"
++    - Name: &#96;FIREBASE_TOKEN&#96;
++    - Value: Paste the token from step 1
++    - Click "Add secret"
++ 
++ ### Workflow Details
++ 
++ - **Trigger:** Push to &#96;main&#96; branch or manual dispatch
++ - **Actions:**
++   1. Checkout code
++   2. Install Node.js and Firebase CLI
++   3. Deploy both sites to Firebase using the CI token
++ 
++ ### Manual Workflow Trigger
++ 
++ You can manually trigger deployment from GitHub:
++ - Go to Actions tab → "Deploy to Firebase Hosting" → "Run workflow"
++ 
++ ---
++ 
++ ## Firebase Configuration
++ 
++ ### Project Structure
++ 
++ &#96;&#96;&#96;
++ Firebase Project: civicai-43a01 (CivicAI Development)
++ │
++ ├── Hosting Site: santos4colorado
++ │   URL: https://santos4colorado.web.app
++ │   Source: sites/santos4colorado/
++ │   Target: santos
++ │
++ └── Hosting Site: millerforward3
++     URL: https://millerforward3.web.app
++     Source: sites/millerforward3/
++     Target: miller
++ &#96;&#96;&#96;
++ 
++ ### Configuration Files
++ 
++ - **firebase.json** — Defines hosting targets and public directories
++ - **.firebaserc** — Maps targets to Firebase site IDs
++ 
++ ### Multi-Site Hosting Targets
++ 
++ &#96;&#96;&#96;json
++ {
++   "santos": ["santos4colorado"],
++   "miller": ["millerforward3"]
++ }
++ &#96;&#96;&#96;
++ 
++ Each target maps a logical name to a Firebase hosting site ID, allowing independent deployment of each campaign site.
++ 
++ ---
++ 
++ ## Troubleshooting
++ 
++ ### Permission Denied
++ 
++ If deployment fails with permission errors:
++ 1. Verify you're authenticated: &#96;firebase login&#96;
++ 2. Check project access: &#96;firebase projects:list&#96;
++ 3. Verify project ID in &#96;.firebaserc&#96; matches your Firebase project
++ 
++ ### Site Not Found
++ 
++ If a hosting site doesn't exist:
++ &#96;&#96;&#96;bash
++ firebase hosting:sites:create santos4colorado
++ firebase hosting:sites:create millerforward3
++ &#96;&#96;&#96;
++ 
++ ### Target Not Applied
++ 
++ If targets aren't configured:
++ &#96;&#96;&#96;bash
++ firebase target:apply hosting santos santos4colorado
++ firebase target:apply hosting miller millerforward3
++ &#96;&#96;&#96;
++ 
++ ### GitHub Actions Token Invalid
++ 
++ If CI deployment fails:
++ 1. Regenerate token: &#96;firebase login:ci&#96;
++ 2. Update &#96;FIREBASE_TOKEN&#96; secret in GitHub
++ 3. Re-run the workflow
++ 
++ ---
++ 
++ ## Rollback
++ 
++ To rollback to a previous deployment:
++ 
++ &#96;&#96;&#96;bash
++ # List previous releases
++ firebase hosting:channel:list
++ 
++ # Deploy specific version
++ firebase hosting:rollback
++ &#96;&#96;&#96;
++ 
++ Or use the Firebase Console:
++ - Go to Hosting → View release history → Rollback
++ 
++ ---
++ 
++ ## Cost &amp; Limits
++ 
++ Firebase Hosting free tier includes:
++ - 10 GB storage
++ - 360 MB/day bandwidth
++ - Custom domain support
++ 
++ These test campaigns are well within free tier limits.
++ 
++ ---
++ 
++ ## Additional Resources
++ 
++ - [Firebase Hosting Documentation](https://firebase.google.com/docs/hosting)
++ - [Multi-Site Hosting Guide](https://firebase.google.com/docs/hosting/multisites)
++ - [GitHub Actions for Firebase](https://github.com/marketplace/actions/deploy-to-firebase-hosting)
++ 
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Good. Now let me add all files, commit, and create the GitHub repo.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && git add -A</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && git add -A
+```
+</details>
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && git status --short</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && git status --short
+```
+
+```
+A  .cursor/rules/derived-cursor-rules.mdc
+A  .cursorignore
+A  .cursorindexingignore
+A  .firebaserc
+A  .github/workflows/deploy.yml
+A  .gitignore
+A  .specstory/.gitignore
+A  .specstory/history/2025-12-28_20-51Z-proposed-test-campaign-structure-and-deployment.md
+A  .specstory/history/2025-12-28_20-55Z-documents-todo-md-tasks.md
+A  .specstory/history/2025-12-28_21-01Z-python-3-lines-1-22.md
+A  .specstory/history/2025-12-28_21-13Z-markdown-file-opening-assertion-failure.md
+A  .specstory/history/2025-12-28_21-58Z-firebase-multi-site-deployment-strategy.md
+A  DEPLOYMENT.md
+A  PROJECT-STATUS.md
+A  QUICK-START.md
+A  README.md
+A  docs/campaign-a/README.md
+A  docs/campaign-a/briefing.md
+A  docs/campaign-a/website-copy.md
+A  docs/campaign-b/README.md
+A  docs/campaign-b/briefing.md
+A  docs/campaign-b/website-copy.md
+A  docs/campaign-c/README.md
+A  docs/campaign-c/briefing.md
+A  docs/campaign-c/framework.md
+A  documents/campaign-a/housing-townhall-summary.md
+A  documents/campaign-a/housing-townhall-summary.pdf
+A  documents/campaign-a/santos-education-platform.md
+A  documents/campaign-a/santos-education-platform.pdf
+A  documents/campaign-a/santos-fact-sheet.md
+A  documents/campaign-a/santos-fact-sheet.pdf
+A  documents/campaign-a/santos-housing-plan.md
+A  documents/campaign-a/santos-housing-plan.pdf
+A  documents/campaign-a/volunteer-handbook.txt
+A  documents/campaign-b/miller-announcement.md
+A  documents/campaign-b/miller-announcement.pdf
+A  firebase.json
+A  sites/millerforward3/README.md
+A  sites/millerforward3/about.html
+A  sites/millerforward3/contact.html
+A  sites/millerforward3/events.html
+A  sites/millerforward3/index.html
+A  sites/millerforward3/issues.html
+A  sites/millerforward3/style.css
+A  sites/santos4colorado/about.html
+A  sites/santos4colorado/contact.html
+A  sites/santos4colorado/css/styles.css
+A  sites/santos4colorado/donate.html
+A  sites/santos4colorado/endorsements.html
+A  sites/santos4colorado/events.html
+A  sites/santos4colorado/index.html
+A  sites/santos4colorado/issues/economy.html
+A  sites/santos4colorado/issues/education.html
+A  sites/santos4colorado/issues/environment.html
+A  sites/santos4colorado/issues/healthcare.html
+A  sites/santos4colorado/issues/housing.html
+A  sites/santos4colorado/issues/immigration.html
+A  sites/santos4colorado/issues/index.html
+A  sites/santos4colorado/issues/infrastructure.html
+A  sites/santos4colorado/issues/public-safety.html
+A  sites/santos4colorado/issues/seniors.html
+A  sites/santos4colorado/news.html
+A  sites/santos4colorado/volunteer.html
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Perfect. All files are staged. Now let me commit with a good commit message and then create the GitHub repository.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && git commit -m "Deploy CivicAI test campaigns to Firebase with CI/CD
+
+- Campaign A (Santos): https://santos4colorado.web.app
+- Campaign B (Miller): https://millerforward3.web.app  
+- Campaign C (Duchen): https://marcforaustin.com (external)
+
+Firebase Configuration:
+- Multi-site hosting configured via firebase.json
+- Project: civicai-43a01 (CivicAI Development)
+- Targets: santos → santos4colorado, miller → millerforward3
+
+GitHub Actions:
+- Auto-deploy workflow on push to main
+- Requires FIREBASE_TOKEN secret (see DEPLOYMENT.md)
+
+Test Data:
+- Campaign A: Happy path (complete content, 9 policy areas)
+- Campaign B: Edge cases (sparse content, intentional 404, tax contradiction)
+- Campaign C: Real-world (Marc Duchen, messy WordPress HTML)
+
+Documentation:
+- README.md: Overview and testing matrix
+- PROJECT-STATUS.md: Current status and handoff checklist
+- DEPLOYMENT.md: Firebase deployment and GitHub Actions setup
+- QUICK-START.md: Developer quick reference
+- Campaign-specific docs in docs/ subdirectories
+
+Sites:
+- santos4colorado: 13 HTML pages, comprehensive campaign site
+- millerforward3: 5 HTML pages, minimal campaign site
+
+Documents:
+- Campaign A: 5 documents (housing plan, education platform, fact sheet, town hall summary, volunteer handbook)
+- Campaign B: 1 document (announcement with tax contradiction)
+- All markdown sources + PDF exports included"</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && git commit -m "Deploy CivicAI test campaigns to Firebase with CI/CD
+
+- Campaign A (Santos): https://santos4colorado.web.app
+- Campaign B (Miller): https://millerforward3.web.app  
+- Campaign C (Duchen): https://marcforaustin.com (external)
+
+Firebase Configuration:
+- Multi-site hosting configured via firebase.json
+- Project: civicai-43a01 (CivicAI Development)
+- Targets: santos → santos4colorado, miller → millerforward3
+
+GitHub Actions:
+- Auto-deploy workflow on push to main
+- Requires FIREBASE_TOKEN secret (see DEPLOYMENT.md)
+
+Test Data:
+- Campaign A: Happy path (complete content, 9 policy areas)
+- Campaign B: Edge cases (sparse content, intentional 404, tax contradiction)
+- Campaign C: Real-world (Marc Duchen, messy WordPress HTML)
+
+Documentation:
+- README.md: Overview and testing matrix
+- PROJECT-STATUS.md: Current status and handoff checklist
+- DEPLOYMENT.md: Firebase deployment and GitHub Actions setup
+- QUICK-START.md: Developer quick reference
+- Campaign-specific docs in docs/ subdirectories
+
+Sites:
+- santos4colorado: 13 HTML pages, comprehensive campaign site
+- millerforward3: 5 HTML pages, minimal campaign site
+
+Documents:
+- Campaign A: 5 documents (housing plan, education platform, fact sheet, town hall summary, volunteer handbook)
+- Campaign B: 1 document (announcement with tax contradiction)
+- All markdown sources + PDF exports included"
+```
+
+```
+[main (root-commit) 9ccb6b4] Deploy CivicAI test campaigns to Firebase with CI/CD
+ 63 files changed, 24311 insertions(+)
+ create mode 100644 .cursor/rules/derived-cursor-rules.mdc
+ create mode 100644 .cursorignore
+ create mode 100644 .cursorindexingignore
+ create mode 100644 .firebaserc
+ create mode 100644 .github/workflows/deploy.yml
+ create mode 100644 .gitignore
+ create mode 100644 .specstory/.gitignore
+ create mode 100644 .specstory/history/2025-12-28_20-51Z-proposed-test-campaign-structure-and-deployment.md
+ create mode 100644 .specstory/history/2025-12-28_20-55Z-documents-todo-md-tasks.md
+ create mode 100644 .specstory/history/2025-12-28_21-01Z-python-3-lines-1-22.md
+ create mode 100644 .specstory/history/2025-12-28_21-13Z-markdown-file-opening-assertion-failure.md
+ create mode 100644 .specstory/history/2025-12-28_21-58Z-firebase-multi-site-deployment-strategy.md
+ create mode 100644 DEPLOYMENT.md
+ create mode 100644 PROJECT-STATUS.md
+ create mode 100644 QUICK-START.md
+ create mode 100644 README.md
+ create mode 100644 docs/campaign-a/README.md
+ create mode 100644 docs/campaign-a/briefing.md
+ create mode 100644 docs/campaign-a/website-copy.md
+ create mode 100644 docs/campaign-b/README.md
+ create mode 100644 docs/campaign-b/briefing.md
+ create mode 100644 docs/campaign-b/website-copy.md
+ create mode 100644 docs/campaign-c/README.md
+ create mode 100644 docs/campaign-c/briefing.md
+ create mode 100644 docs/campaign-c/framework.md
+ create mode 100644 documents/campaign-a/housing-townhall-summary.md
+ create mode 100644 documents/campaign-a/housing-townhall-summary.pdf
+ create mode 100644 documents/campaign-a/santos-education-platform.md
+ create mode 100644 documents/campaign-a/santos-education-platform.pdf
+ create mode 100644 documents/campaign-a/santos-fact-sheet.md
+ create mode 100644 documents/campaign-a/santos-fact-sheet.pdf
+ create mode 100644 documents/campaign-a/santos-housing-plan.md
+ create mode 100644 documents/campaign-a/santos-housing-plan.pdf
+ create mode 100644 documents/campaign-a/volunteer-handbook.txt
+ create mode 100644 documents/campaign-b/miller-announcement.md
+ create mode 100644 documents/campaign-b/miller-announcement.pdf
+ create mode 100644 firebase.json
+ create mode 100644 sites/millerforward3/README.md
+ create mode 100644 sites/millerforward3/about.html
+ create mode 100644 sites/millerforward3/contact.html
+ create mode 100644 sites/millerforward3/events.html
+ create mode 100644 sites/millerforward3/index.html
+ create mode 100644 sites/millerforward3/issues.html
+ create mode 100644 sites/millerforward3/style.css
+ create mode 100644 sites/santos4colorado/about.html
+ create mode 100644 sites/santos4colorado/contact.html
+ create mode 100644 sites/santos4colorado/css/styles.css
+ create mode 100644 sites/santos4colorado/donate.html
+ create mode 100644 sites/santos4colorado/endorsements.html
+ create mode 100644 sites/santos4colorado/events.html
+ create mode 100644 sites/santos4colorado/index.html
+ create mode 100644 sites/santos4colorado/issues/economy.html
+ create mode 100644 sites/santos4colorado/issues/education.html
+ create mode 100644 sites/santos4colorado/issues/environment.html
+ create mode 100644 sites/santos4colorado/issues/healthcare.html
+ create mode 100644 sites/santos4colorado/issues/housing.html
+ create mode 100644 sites/santos4colorado/issues/immigration.html
+ create mode 100644 sites/santos4colorado/issues/index.html
+ create mode 100644 sites/santos4colorado/issues/infrastructure.html
+ create mode 100644 sites/santos4colorado/issues/public-safety.html
+ create mode 100644 sites/santos4colorado/issues/seniors.html
+ create mode 100644 sites/santos4colorado/news.html
+ create mode 100644 sites/santos4colorado/volunteer.html
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Good! Now I need to create the GitHub repository and push. Let me use the GitHub CLI to create the repo.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: which gh</summary>
+
+```bash
+which gh
+```
+
+```
+/usr/bin/gh
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Great, GitHub CLI is installed. Now let me create the GitHub repository and push.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && gh auth status</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && gh auth status
+```
+
+```
+github.com
+  ✓ Logged in to github.com account tr1n1tycat (keyring)
+  - Active account: true
+  - Git operations protocol: ssh
+  - Token: gho_************************************
+  - Token scopes: 'admin:public_key', 'delete_repo', 'gist', 'read:org', 'repo', 'workflow'
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Perfect! User is authenticated. Now let me create the GitHub repo and push.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && gh repo create civicai-test-campaigns --public --source=. --remote=origin --description="Test campaign websites and documents for validating CivicAI's M1 content ingestion pipeline" --push</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && gh repo create civicai-test-campaigns --public --source=. --remote=origin --description="Test campaign websites and documents for validating CivicAI's M1 content ingestion pipeline" --push
+```
+
+```
+https://github.com/tr1n1tycat/civicai-test-campaigns
+branch 'main' set up to track 'origin/main'.
+To github.com:tr1n1tycat/civicai-test-campaigns.git
+ * [new branch]      HEAD -&gt; main
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Excellent! Repository created and code pushed. Now I need to add the Firebase token as a GitHub secret. Let me get the Firebase CI token and add it to GitHub secrets.</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="write">
+
+<details><summary>Tool use: **write** • Edit file: /home/trinity/Templates/civicai-test-campaigns/SETUP-INSTRUCTIONS.md</summary>
+
+**Chunk 1**
+Lines added: 72, lines removed: 1
+
+```diff
+@@ -1,1 +1,72 @@
+- 
++ # Setup Instructions for GitHub Actions
++ 
++ ## Firebase CI Token Setup
++ 
++ To enable automatic deployment via GitHub Actions, you need to add a Firebase CI token to your repository secrets.
++ 
++ ### Step 1: Generate Firebase CI Token
++ 
++ Run this command in a terminal:
++ 
++ &#96;&#96;&#96;bash
++ firebase login:ci
++ &#96;&#96;&#96;
++ 
++ This will:
++ 1. Open your browser for Firebase authentication
++ 2. After successful login, output a token in the terminal
++ 3. Copy this token (starts with &#96;1//...&#96;)
++ 
++ ### Step 2: Add Token to GitHub Secrets
++ 
++ #### Option A: Using GitHub CLI (Recommended)
++ 
++ &#96;&#96;&#96;bash
++ # Set the token as an environment variable first
++ export FIREBASE_TOKEN="your-token-here"
++ 
++ # Add it to GitHub secrets
++ cd /home/trinity/Templates/civicai-test-campaigns
++ gh secret set FIREBASE_TOKEN --body "$FIREBASE_TOKEN"
++ &#96;&#96;&#96;
++ 
++ #### Option B: Using GitHub Web Interface
++ 
++ 1. Go to: https://github.com/tr1n1tycat/civicai-test-campaigns/settings/secrets/actions
++ 2. Click "New repository secret"
++ 3. Name: &#96;FIREBASE_TOKEN&#96;
++ 4. Value: Paste your token from Step 1
++ 5. Click "Add secret"
++ 
++ ### Step 3: Verify Deployment
++ 
++ Once the secret is added:
++ 
++ 1. Make any change to the repository
++ 2. Commit and push to &#96;main&#96; branch
++ 3. Go to Actions tab: https://github.com/tr1n1tycat/civicai-test-campaigns/actions
++ 4. Watch the "Deploy to Firebase Hosting" workflow run
++ 5. Verify both sites are updated:
++    - https://santos4colorado.web.app
++    - https://millerforward3.web.app
++ 
++ ### Manual Workflow Trigger
++ 
++ You can also manually trigger deployment without pushing:
++ 
++ 1. Go to: https://github.com/tr1n1tycat/civicai-test-campaigns/actions/workflows/deploy.yml
++ 2. Click "Run workflow" dropdown
++ 3. Select branch: &#96;main&#96;
++ 4. Click "Run workflow" button
++ 
++ ---
++ 
++ ## Current Status
++ 
++ ✅ Repository created: https://github.com/tr1n1tycat/civicai-test-campaigns
++ ✅ Initial commit pushed
++ ✅ GitHub Actions workflow configured
++ ⏳ **PENDING:** Add &#96;FIREBASE_TOKEN&#96; secret (follow steps above)
++ 
++ Once the token is added, the CI/CD pipeline will be fully operational.
++ 
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && cat << 'EOF'
+
+═══════════════════════════════════════════════════════════════
+  FINAL SETUP STEP: Add Firebase Token to GitHub Secrets
+═══════════════════════════════════════════════════════════════
+
+To complete the CI/CD setup, run these commands:
+
+1. Generate Firebase CI token:
+   $ firebase login:ci
+
+2. Copy the token output, then add to GitHub:
+   $ export FIREBASE_TOKEN="your-token-here"
+   $ gh secret set FIREBASE_TOKEN --body "$FIREBASE_TOKEN"
+
+3. Verify in GitHub Actions:
+   https://github.com/tr1n1tycat/civicai-test-campaigns/actions
+
+Alternatively, add manually via GitHub web interface:
+https://github.com/tr1n1tycat/civicai-test-campaigns/settings/secrets/actions
+
+═══════════════════════════════════════════════════════════════
+
+EOF
+</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && cat << 'EOF'
+
+═══════════════════════════════════════════════════════════════
+  FINAL SETUP STEP: Add Firebase Token to GitHub Secrets
+═══════════════════════════════════════════════════════════════
+
+To complete the CI/CD setup, run these commands:
+
+1. Generate Firebase CI token:
+   $ firebase login:ci
+
+2. Copy the token output, then add to GitHub:
+   $ export FIREBASE_TOKEN="your-token-here"
+   $ gh secret set FIREBASE_TOKEN --body "$FIREBASE_TOKEN"
+
+3. Verify in GitHub Actions:
+   https://github.com/tr1n1tycat/civicai-test-campaigns/actions
+
+Alternatively, add manually via GitHub web interface:
+https://github.com/tr1n1tycat/civicai-test-campaigns/settings/secrets/actions
+
+═══════════════════════════════════════════════════════════════
+
+EOF
+
+```
+
+```
+
+═══════════════════════════════════════════════════════════════
+  FINAL SETUP STEP: Add Firebase Token to GitHub Secrets
+═══════════════════════════════════════════════════════════════
+
+To complete the CI/CD setup, run these commands:
+
+1. Generate Firebase CI token:
+   $ firebase login:ci
+
+2. Copy the token output, then add to GitHub:
+   $ export FIREBASE_TOKEN="your-token-here"
+   $ gh secret set FIREBASE_TOKEN --body "$FIREBASE_TOKEN"
+
+3. Verify in GitHub Actions:
+   https://github.com/tr1n1tycat/civicai-test-campaigns/actions
+
+Alternatively, add manually via GitHub web interface:
+https://github.com/tr1n1tycat/civicai-test-campaigns/settings/secrets/actions
+
+═══════════════════════════════════════════════════════════════
+
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Good. Now let me commit this new setup instructions file and push it.</details></think>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && git add SETUP-INSTRUCTIONS.md && git commit -m "Add Firebase CI token setup instructions for GitHub Actions" && git push</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && git add SETUP-INSTRUCTIONS.md && git commit -m "Add Firebase CI token setup instructions for GitHub Actions" && git push
+```
+
+```
+[main 4808b0b] Add Firebase CI token setup instructions for GitHub Actions
+ 1 file changed, 71 insertions(+)
+ create mode 100644 SETUP-INSTRUCTIONS.md
+To github.com:tr1n1tycat/civicai-test-campaigns.git
+   9ccb6b4..4808b0b  main -&gt; main
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Perfect! Now let me update the README to include the GitHub repository link and create a final summary for the user.</details></think>
+
+---
+
+<tool-use data-tool-type="write" data-tool-name="search_replace">
+
+<details><summary>Tool use: **search_replace** • Edit file: /home/trinity/Templates/civicai-test-campaigns/README.md</summary>
+
+**Chunk 1**
+Lines added: 2, lines removed: undefined
+
+```diff
+@@ -2,4 +2,6 @@
+  
+  Test campaign data for validating CivicAI's M1 content ingestion and analysis pipeline.
++ 
++ **Repository:** https://github.com/tr1n1tycat/civicai-test-campaigns
+  
+  ---
+```
+
+</details>
+
+</tool-use>
+
+---
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_cmd">
+<details><summary>Tool use: **run_terminal_cmd** • Run command: cd /home/trinity/Templates/civicai-test-campaigns && git add README.md && git commit -m "Add GitHub repository link to README" && git push</summary>
+
+```bash
+cd /home/trinity/Templates/civicai-test-campaigns && git add README.md && git commit -m "Add GitHub repository link to README" && git push
+```
+
+```
+[main 3acf0a5] Add GitHub repository link to README
+ 1 file changed, 2 insertions(+)
+To github.com:tr1n1tycat/civicai-test-campaigns.git
+   4808b0b..3acf0a5  main -&gt; main
+
+```
+</details>
+</tool-use>
+
+---
+
+<think><details><summary>Thought Process</summary>
+Excellent! Everything is done. Let me create a summary of what was accomplished.</details></think>
+
+---
+
+## ✅ Complete
+
+### Repository & Deployment
+
+**GitHub Repository:** https://github.com/tr1n1tycat/civicai-test-campaigns
+
+**Live URLs:**
+- Campaign A (Santos): https://santos4colorado.web.app
+- Campaign B (Miller): https://millerforward3.web.app
+- Campaign C (Duchen): https://marcforaustin.com
+
+### What Was Done
+
+**1. Documentation Updated**
+- `README.md` — Added live URLs and GitHub repo link
+- `PROJECT-STATUS.md` — Updated deployment status, marked tasks complete
+- `DEPLOYMENT.md` — Created comprehensive Firebase deployment guide
+- `SETUP-INSTRUCTIONS.md` — Added GitHub Actions token setup steps
+
+**2. Git Repository**
+- ✅ Initialized with `git init`
+- ✅ Committed all files (63 files, 24K+ lines)
+- ✅ Created public GitHub repository
+- ✅ Pushed to `main` branch
+
+**3. GitHub Actions CI/CD**
+- ✅ Workflow file: `.github/workflows/deploy.yml`
+- ✅ Triggers on push to `main` or manual dispatch
+- ✅ Deploys both sites to Firebase automatically
+- ⏳ **Requires:** `FIREBASE_TOKEN` secret (see below)
+
+**4. Firebase Configuration**
+- ✅ Multi-site hosting configured
+- ✅ Project: `civicai-43a01` (CivicAI Development)
+- ✅ Targets mapped: `santos` → santos4colorado, `miller` → millerforward3
+- ✅ Both sites deployed and verified live
+
+---
+
+### Final Setup Step
+
+To enable auto-deployment, add the Firebase CI token to GitHub:
+
+```bash
+# 1. Generate token (opens browser)
+firebase login:ci
+
+# 2. Add to GitHub secrets
+export FIREBASE_TOKEN="your-token-from-step-1"
+gh secret set FIREBASE_TOKEN --body "$FIREBASE_TOKEN"
+```
+
+**Or via web:** https://github.com/tr1n1tycat/civicai-test-campaigns/settings/secrets/actions
+
+Once added, any push to `main` will auto-deploy both sites.
+
+---
+
+### Repository Structure
+
+```
+63 files committed:
+├── Sites: santos4colorado (13 pages) + millerforward3 (5 pages)
+├── Documents: Campaign A (5 docs) + Campaign B (1 doc w/ contradiction)
+├── Documentation: README, PROJECT-STATUS, DEPLOYMENT, QUICK-START
+├── Firebase: firebase.json, .firebaserc
+└── CI/CD: .github/workflows/deploy.yml
+```
+
+**Commit message:** "Deploy CivicAI test campaigns to Firebase with CI/CD"
+
+---
+
+### URLs for Dev Team
+
+| Campaign | Type | URL | Purpose |
+|----------|------|-----|---------|
+| **A (Santos)** | Test | https://santos4colorado.web.app | Happy path validation |
+| **B (Miller)** | Test | https://millerforward3.web.app | Gap/contradiction detection |
+| **C (Duchen)** | Real | https://marcforaustin.com | Real-world parsing |
+
+All URLs live and ready for M1 pipeline testing.
 
 ---
 
