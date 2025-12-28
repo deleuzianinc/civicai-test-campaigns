@@ -40,5 +40,5 @@ gh secret set FIREBASE_TOKEN  # paste token when prompted
 
 ---
 
-**Repo:** https://github.com/tr1n1tycat/civicai-test-campaigns  
+**Repo:** https://github.com/deleuzianinc/civicai-test-campaigns  
 **Firebase Project:** civicai-43a01
