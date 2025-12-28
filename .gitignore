@@ -39,3 +39,6 @@ build/
 # Environment variables (if using)
 .env
 .env.local
+
+# Internal tooling
+.specstory/
