@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Support Maria Santos' campaign for Colorado State Representative. Your contribution powers grassroots organizing in District 42.">
+  <meta name="keywords" content="Maria Santos, donate, contribution, campaign, Colorado, District 42">
+  <title>Donate — Maria Santos for Colorado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <div class="logo">
+          <a href="index.html">
+            <span class="logo-mark">MS</span>
+            <span>Maria Santos for Colorado</span>
+          </a>
+        </div>
+        <nav class="site-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="issues/index.html">Issues</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="donate.html" class="active">Donate</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="endorsements.html">Endorsements</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1>Power This Movement</h1>
+        <p>Your contribution puts people power behind this campaign.</p>
+      </div>
+    </section>
+
+    <!-- Why Give -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid--2" style="gap: var(--space-3xl); align-items: start;">
+          <div>
+            <h2>Why Your Donation Matters</h2>
+            <p class="mb-lg">This campaign doesn't take money from corporate PACs or special interests. We're funded by people like you — neighbors who believe in a better Colorado.</p>
+            
+            <p class="mb-lg">Your contribution goes directly to:</p>
+            <ul class="policy-list mb-lg">
+              <li><strong>Voter outreach</strong> — Mailers, phone banks, door knocking</li>
+              <li><strong>Volunteer support</strong> — Training, materials, coordination</li>
+              <li><strong>Events</strong> — Town halls, rallies, community gatherings</li>
+              <li><strong>Digital organizing</strong> — Reaching voters where they are</li>
+            </ul>
+            
+            <p><strong>Every dollar matters. This is how we win.</strong></p>
+          </div>
+          
+          <div class="card" style="padding: var(--space-2xl);">
+            <h3 class="text-center mb-xl">Make a Contribution</h3>
+            
+            <div class="donation-tiers mb-xl">
+              <div class="donation-tier">
+                <div class="donation-amount">$25</div>
+                <div class="donation-description">Sponsor 50 door hangers</div>
+              </div>
+              <div class="donation-tier">
+                <div class="donation-amount">$50</div>
+                <div class="donation-description">Fund an hour of phone banking</div>
+              </div>
+              <div class="donation-tier featured">
+                <div class="donation-amount">$100</div>
+                <div class="donation-description">Support a town hall event</div>
+              </div>
+              <div class="donation-tier">
+                <div class="donation-amount">$250</div>
+                <div class="donation-description">Power a weekend canvass</div>
+              </div>
+            </div>
+            
+            <form action="#" method="POST">
+              <div class="form-group">
+                <label class="form-label" for="amount">Amount (USD)</label>
+                <input type="number" id="amount" name="amount" class="form-input" min="5" step="5" placeholder="$100" required>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-checkbox-label">
+                  <input type="checkbox" name="recurring" value="yes">
+                  Make this a monthly donation
+                </label>
+              </div>
+              
+              <div class="grid grid--2">
+                <div class="form-group">
+                  <label class="form-label" for="donor-first">First Name *</label>
+                  <input type="text" id="donor-first" name="first-name" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="donor-last">Last Name *</label>
+                  <input type="text" id="donor-last" name="last-name" class="form-input" required>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="donor-email">Email *</label>
+                <input type="email" id="donor-email" name="email" class="form-input" required>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="donor-address">Address *</label>
+                <input type="text" id="donor-address" name="address" class="form-input" required>
+              </div>
+              
+              <div class="grid grid--3">
+                <div class="form-group">
+                  <label class="form-label" for="donor-city">City *</label>
+                  <input type="text" id="donor-city" name="city" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="donor-state">State *</label>
+                  <input type="text" id="donor-state" name="state" class="form-input" value="CO" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="donor-zip">ZIP *</label>
+                  <input type="text" id="donor-zip" name="zip" class="form-input" required>
+                </div>
+              </div>
+              
+              <div class="grid grid--2">
+                <div class="form-group">
+                  <label class="form-label" for="employer">Employer *</label>
+                  <input type="text" id="employer" name="employer" class="form-input" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="occupation">Occupation *</label>
+                  <input type="text" id="occupation" name="occupation" class="form-input" required>
+                </div>
+              </div>
+              
+              <button type="submit" class="btn btn--secondary btn--lg" style="width: 100%;">Donate Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Employer Matching -->
+    <section class="section section--alt">
+      <div class="container container--narrow text-center">
+        <h2 class="mb-lg">Double Your Impact</h2>
+        <p class="mb-lg">Many employers match political contributions. Check with your HR department to see if your company will match your gift to Santos for Colorado.</p>
+        <p class="text-muted">Common matching programs include those from large employers, tech companies, and many professional services firms.</p>
+      </div>
+    </section>
+
+    <!-- Transparency -->
+    <section class="section">
+      <div class="container container--narrow">
+        <h2 class="text-center mb-xl">Transparency</h2>
+        <p class="text-center mb-xl">We believe in full transparency about where our money comes from.</p>
+        
+        <div class="grid grid--3">
+          <div class="card">
+            <div class="card-content text-center">
+              <div class="issue-icon" style="margin: 0 auto var(--space-md);">🚫</div>
+              <p class="text-sm">No corporate PAC contributions</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content text-center">
+              <div class="issue-icon" style="margin: 0 auto var(--space-md);">📋</div>
+              <p class="text-sm">All contributions over $20 publicly disclosed</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content text-center">
+              <div class="issue-icon" style="margin: 0 auto var(--space-md);">📊</div>
+              <p class="text-sm">Regular campaign finance reports filed</p>
+            </div>
+          </div>
+        </div>
+        
+        <p class="text-center mt-xl"><a href="#">View our latest campaign finance reports</a></p>
+      </div>
+    </section>
+
+    <!-- Fine Print -->
+    <section class="section section--alt">
+      <div class="container container--narrow">
+        <p class="text-sm text-muted text-center">Contributions to Santos for Colorado are not tax deductible. Colorado law requires us to collect and report the name, mailing address, occupation, and employer of individuals whose contributions exceed $20 in an election cycle. Contributions from corporations, labor unions, foreign nationals, and federal contractors are prohibited. The maximum individual contribution is $400 per election.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Maria Santos for Colorado</h4>
+          <p style="color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">Building Bridges, Not Barriers</p>
+          <div class="footer-social mt-lg">
+            <a href="#" aria-label="Facebook">FB</a>
+            <a href="#" aria-label="Twitter">X</a>
+            <a href="#" aria-label="Instagram">IG</a>
+            <a href="#" aria-label="YouTube">YT</a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Maria</a></li>
+            <li><a href="issues/index.html">Issues</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="news.html">News</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="volunteer.html">Volunteer</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="endorsements.html">Endorsements</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Campaign HQ</h4>
+          <p style="color: rgba(255,255,255,0.7); font-size: var(--text-sm);">
+            12345 E. Colfax Avenue<br>
+            Aurora, CO 80010<br><br>
+            (303) 555-0142<br>
+            info@santos4colorado.com
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Paid for by Santos for Colorado. Registered Agent: Maria Elena Santos.</p>
+        <p style="margin-top: var(--space-sm);">© <span id="year"></span> Santos for Colorado. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

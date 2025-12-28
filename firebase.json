@@ -1,0 +1,24 @@
+{
+  "hosting": [
+    {
+      "target": "santos",
+      "public": "sites/santos4colorado",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": []
+    },
+    {
+      "target": "miller",
+      "public": "sites/millerforward3",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": []
+    }
+  ]
+}

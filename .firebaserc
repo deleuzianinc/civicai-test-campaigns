@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "civicai-43a01"
+  },
+  "targets": {
+    "civicai-43a01": {
+      "hosting": {
+        "santos": [
+          "santos4colorado"
+        ],
+        "miller": [
+          "millerforward3"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}

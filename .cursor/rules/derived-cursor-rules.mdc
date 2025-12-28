@@ -1,0 +1,61 @@
+---
+description: AI rules derived by SpecStory from the project AI interaction history
+globs: *
+---
+
+## HEADERS
+
+## PROJECT DOCUMENTATION & CONTEXT SYSTEM
+
+This section defines how project documentation is structured and maintained.
+
+## TECH STACK
+
+## CODING STANDARDS
+
+## WORKFLOW & RELEASE RULES
+
+When deploying multiple sites to Firebase from a single project, use Firebase's multi-site hosting feature.
+1.  Create separate Firebase Hosting sites in the Firebase Console for each site.
+2.  Configure `firebase.json` with hosting targets, specifying the `public` directory for each site.
+3.  Map the targets to the corresponding Firebase site IDs in `.firebaserc`.
+4.  Deploy using `firebase deploy --only hosting`, or deploy individual sites using `firebase deploy --only hosting:target`.
+
+## DEBUGGING
+
+## STYLE GUIDE
+
+When evaluating websites and code, follow these sequential steps:
+
+1.  **Visual & Structural Audit:**
+    *   Inspect navigation links and CSS paths, verifying their correctness.
+    *   Confirm the presence of semantic HTML5 elements.
+
+2.  **Code Review:**
+    *   Read the raw HTML files to verify the integrity of the text.
+    *   Examine CSS files for correct paths and styling.
+
+3.  **Rendering Evaluation:**
+    *   Be aware of potential rendering artifacts in the test environment, such as missing characters or layout issues.
+    *   If rendering issues are suspected, verify the source code to ensure the content is correct.
+    *   If source code is correct, consider the rendering issue tool-specific.
+    *   **If a markdown file fails to open in the editor with an "Assertion Failed: Argument is `undefined` or `null`" error, the file itself may be intact, and the issue may be an editor rendering problem.**
+
+4.  **Responsiveness Testing:**
+    *   Check for responsive scaling using `clamp()` functions in CSS.
+    *   Ensure CSS Grid is implemented with appropriate breakpoints for mobile-first compatibility.
+
+5.  **Image Handling:**
+    *   Note the behavior of image placeholders, especially if they render as text blocks.
+
+6.  **Directory Structure:**
+    *   Ensure relative paths are correctly implemented, especially in sub-directories.
+
+**Workaround Options for Markdown Rendering Issues:**
+
+If a markdown file fails to open in the editor with an "Assertion Failed: Argument is `undefined` or `null`" error:
+
+1.  **Open in external editor** (vim, nano, VSCode, etc.)
+2.  **Read via terminal**: `cat /path/to/file.md`
+3.  **Restart the editor** (may clear the UI state causing the assertion failure)
+4.  **Check editor logs** for the specific assertion trace if this persists
