@@ -138,7 +138,7 @@ This is the core test for contradiction detection:
 
 ## Quick Reference
 
-**Website:** https://millerforward3--civicai-43a01.web.app  
+**Website:** https://millerforward3.web.app  
 **Slogan:** "Common Sense for Riverside"  
 **Key Test:** Detects gaps and contradictions  
 **Expected Gaps:** 7+  

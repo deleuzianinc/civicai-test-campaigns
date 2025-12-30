@@ -111,7 +111,7 @@ Campaign A must succeed before testing B or C. It's the control case.
 
 ## Quick Reference
 
-**Website:** https://santos4colorado--civicai-43a01.web.app  
+**Website:** https://santos4colorado.web.app  
 **Slogan:** "Building Bridges, Not Barriers"  
 **Key Test:** Everything works perfectly  
 **Expected Gaps:** 0  
