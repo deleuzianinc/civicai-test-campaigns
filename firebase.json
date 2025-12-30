@@ -2,7 +2,7 @@
   "hosting": [
     {
       "target": "santos",
-      "public": "sites/santos4colorado",
+      "public": "campaigns/campaign-a/santos4colorado",
       "ignore": [
         "firebase.json",
         "**/.*",
@@ -12,7 +12,7 @@
     },
     {
       "target": "miller",
-      "public": "sites/millerforward3",
+      "public": "campaigns/campaign-b/millerforward3",
       "ignore": [
         "firebase.json",
         "**/.*",

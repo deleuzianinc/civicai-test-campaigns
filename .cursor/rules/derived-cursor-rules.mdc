@@ -9,6 +9,8 @@ globs: *
 
 This section defines how project documentation is structured and maintained.
 
+When creating documentation for non-profit organizations, follow the same structure as campaign directories, including a `README.md` for a quick overview and a `briefing.md` for comprehensive details. Ensure the documentation provides context to the development team for building scraping and ingestion pipelines. Note if the organization's website contains embedded policy papers, pricing information, or other data that must be automatically extracted.
+
 ## TECH STACK
 
 ## CODING STANDARDS
@@ -29,6 +31,7 @@ When evaluating websites and code, follow these sequential steps:
 
 1.  **Visual & Structural Audit:**
     *   Inspect navigation links and CSS paths, verifying their correctness.
+    *   Confirm the presence of semantic HTML5 elements.
     *   Confirm the presence of semantic HTML5 elements.
 
 2.  **Code Review:**
