@@ -11,17 +11,72 @@ This section defines how project documentation is structured and maintained.
 
 When creating documentation for non-profit organizations, follow the same structure as campaign directories, including a `README.md` for a quick overview and a `briefing.md` for comprehensive details. Ensure the documentation provides context to the development team for building scraping and ingestion pipelines. Note if the organization's website contains embedded policy papers, pricing information, or other data that must be automatically extracted.
 
+**README Updates**: Ensure that campaign README files contain the correct Firebase URLs, and not placeholder URLs. Verify the accuracy of these URLs after deployment.
+
 ## TECH STACK
 
-## CODING STANDARDS
+## CODE STYLE
+
+When integrating the CivicAI assistant widget, embed the provided script into the relevant HTML pages:
+
+```html
+<script src="https://widget.civicai.com/v1/embed.js"
+  data-api-key="wk_af1fcb6f2526b2638d55cbcb2ddf3270"
+  async>
+</script>
+```
+
+**Important Considerations for Widget Embedding:**
+
+*   Embed the CivicAI assistant widget script just before the closing `</body>` tag in all HTML files.
+*   Ensure the script is placed after any existing scripts.
+*   Verify that the script is correctly formatted (e.g., not on a single line if it should be multiline).
+*   Double-check the script URL for accuracy. Note that there may be multiple URLs, and the correct one must be used.
+
+**CivicAI Widget URL Selection and Troubleshooting**
+
+When embedding the CivicAI assistant widget, prioritize the primary URL (`https://widget.civicai.com/v1/embed.js`). However, if issues arise (e.g., SSL certificate errors), use the IP-based fallback URL (`http://34.111.118.158/api/v1/widget/embed.js`) *only* for testing purposes.
+
+**Important Considerations:**
+
+*   **SSL Certificate Errors**: If the primary URL (`https://widget.civicai.com/v1/embed.js`) produces an SSL certificate error, immediately notify the infrastructure team to resolve the certificate issue.
+*   **Mixed Content**: Be aware that using the HTTP-based fallback URL on an HTTPS site will result in a "Mixed Content" error, preventing the widget from loading in most browsers. *This configuration is only for testing and is not recommended for production deployments.*
+*   **Testing**: When testing with the IP-based fallback URL, ensure that it is reachable and responsive. Use `curl -I <url>` to verify the HTTP status code (200 indicates success).
+*   **Always Revert**: Once the SSL certificate issue is resolved on `widget.civicai.com`, *always revert* to using the primary URL in all HTML files.
+
+## FOLDER ORGANIZATION
+
+## PROJECT-SPECIFIC STANDARDS
 
 ## WORKFLOW & RELEASE RULES
 
 When deploying multiple sites to Firebase from a single project, use Firebase's multi-site hosting feature.
 1.  Create separate Firebase Hosting sites in the Firebase Console for each site.
-2.  Configure `firebase.json` with hosting targets, specifying the `public` directory for each site.
+2.  Configure `firebase.json` with hosting targets, specifying the `public` directory for each site. Update `firebase.json` to reflect the correct deployment paths after project restructuring. For example, the `public` path for `santos4colorado` should be `campaigns/campaign-a/santos4colorado`.
 3.  Map the targets to the corresponding Firebase site IDs in `.firebaserc`.
 4.  Deploy using `firebase deploy --only hosting`, or deploy individual sites using `firebase deploy --only hosting:target`.
+
+## REFERENCE EXAMPLES
+
+Example HTML embedding of the CivicAI assistant widget:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>Host website</h1>
+
+    <script
+      src="https://widget.civicai.com/v1/widget/embed.js"
+      data-api-key="wk_af1fcb6f2526b2638d55cbcb2ddf3270"
+      async
+    ></script>
+  </body>
+</html>
+```
 
 ## DEBUGGING
 
@@ -62,3 +117,5 @@ If a markdown file fails to open in the editor with an "Assertion Failed: Argume
 2.  **Read via terminal**: `cat /path/to/file.md`
 3.  **Restart the editor** (may clear the UI state causing the assertion failure)
 4.  **Check editor logs** for the specific assertion trace if this persists
+
+## FINAL DOs AND DON'Ts
